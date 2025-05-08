@@ -7,7 +7,8 @@ const CountriseList = ({ loaderData, search, setSearch, region, setRegion }: Cou
         const matchesSearch = !search || country.name.common.toLowerCase().includes(search.toLowerCase());
         const matchesRegion = !region || country.region.toLowerCase() === region.toLowerCase();
         return matchesSearch && matchesRegion;
-      })
+      });
+
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-6 text-gray-900"> Countries</h2>
@@ -46,7 +47,9 @@ const CountriseList = ({ loaderData, search, setSearch, region, setRegion }: Cou
                 <Link 
                   to={`/countries/${country.name.common}`}
                   className="text-indigo-600 hover:underline text-lg font-semibold"
-                  > {country.name.common} </Link>
+                  >
+                     {country.name.common} 
+                  </Link>
                 <div className="text-gray-600 text-sm mt-1">
                   Region: {country.region} <br />
                   Population: {country.population}
