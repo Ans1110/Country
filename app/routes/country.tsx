@@ -1,4 +1,4 @@
-import type { ICountry, CountryApiResponse } from "type";
+import type { ICountry, ICountryApiResponse } from "type";
 import type { Route } from "../+types/root";
 
 export async function clientLoader({ params }: Route.LoaderArgs) {
@@ -11,7 +11,7 @@ export async function clientLoader({ params }: Route.LoaderArgs) {
 
 
 
-export default function Country({ loaderData = [] }: { loaderData?: CountryApiResponse[] }) {
+export default function Country({ loaderData = [] }: { loaderData?: ICountryApiResponse[] }) {
   const country: ICountry = {
     name: loaderData?.[0]?.name?.common || "N/A",
     official: loaderData?.[0]?.name?.official || "N/A",

@@ -20,7 +20,7 @@ export interface ICountry {
   flagUrl: string | "";
 }
 
-export interface CountryApiResponse {
+export interface ICountryApiResponse {
   name: {
     common: string;
     official: string;
