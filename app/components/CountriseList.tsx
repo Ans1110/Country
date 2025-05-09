@@ -1,8 +1,12 @@
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router";
 import type { ICountryData, CountriesProps } from "type";
+import { useState } from "react";
 
-const CountriseList = ({ loaderData, search, setSearch, region, setRegion }: CountriesProps) => {
+const CountriseList = ({ loaderData }: CountriesProps) => {
+    const [search, setSearch] = useState<string>("");
+    const [region, setRegion] = useState<string>("");
+    
     const filteredCountries = loaderData.filter((country: ICountryData) => {
         const matchesSearch = !search || country.name.common.toLowerCase().includes(search.toLowerCase());
         const matchesRegion = !region || country.region.toLowerCase() === region.toLowerCase();
@@ -47,9 +51,9 @@ const CountriseList = ({ loaderData, search, setSearch, region, setRegion }: Cou
                 <Link 
                   to={`/countries/${country.name.common}`}
                   className="text-indigo-600 hover:underline text-lg font-semibold"
-                  >
-                     {country.name.common} 
-                  </Link>
+                >
+                    {country.name.common} 
+                </Link>
                 <div className="text-gray-600 text-sm mt-1">
                   Region: {country.region} <br />
                   Population: {country.population}

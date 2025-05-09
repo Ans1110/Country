@@ -8,8 +8,28 @@ export interface ICountryData {
 
 export type CountriesProps = {
   loaderData: ICountryData[];
-  search: string;
-  setSearch: (search: string) => void;
-  region: string;
-  setRegion: (region: string) => void;
 };
+
+export interface ICountry {
+  name: string | "N/A";
+  official: string | "N/A";
+  region: string | "N/A";
+  subregion: string | "N/A";
+  capital: string | "N/A";
+  population: number | "N/A";
+  flagUrl: string | "";
+}
+
+export interface CountryApiResponse {
+  name: {
+    common: string;
+    official: string;
+  };
+  region: string;
+  subregion: string;
+  capital: string[];
+  population: number;
+  flags: {
+    png: string;
+  };
+}
