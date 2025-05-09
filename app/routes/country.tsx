@@ -9,7 +9,12 @@ export async function clientLoader({ params }: Route.LoaderArgs) {
     return data;
 }
 
-
+export function meta({ params }: Route.MetaArgs) {
+    const { countryName } = params;
+    return [
+        { title: countryName },
+    ];
+}
 
 export default function Country({ loaderData = [] }: { loaderData?: ICountryApiResponse[] }) {
   const country: ICountry = {
